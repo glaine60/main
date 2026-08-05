@@ -1,0 +1,49 @@
+/*
+Stylesheet name: Green.css
+Theme URI: https://themeies.com
+Author URI: https://themeies.com/
+ */
+.profile-container h2, .milestone-counter h3, .homeItem h1 span, .ppc-percents span,  .mobileNav > li > a:hover, .headMenu ul li.active a,.headMenu ul li a:hover,
+.profile-container .social-media a:hover i, .leaflet-bar a, .leaflet-bar a:hover, ul.post-meta li h5 a, .comments li a:hover, .widget ul li a:hover
+{
+    color:#39DA8A
+}
+.roysha-icon span:before, .iconBox .icon{
+    color:#39DA8A !important
+}
+
+a.logo, a.prevBTN, a.nextBTN, .btn-3, .owlControl button, .mainprog, #fullMenuBtn:hover, .owl-dot, .headMenu ul li a,.panel2 .btn,
+.titleArea:before, .titleArea:after, .workres i, .sparateLine, .price, .scrollControl ul li.mDot.active a,
+span.sbar, .progress-pie-chart.gt-50, .ui-group.filters button.button.is-checked, .portGrid .protItem a,.order-wrap.fl-wrap.color-bg,
+.mobileNav > li > a::before, .mobileNav > li > a:hover:after, li.tab-link.active, a.elem,.service2 ul.nav.nav-tabs li a.active, .footer-media ul li a, .post a.btn, .pagination a, .post-item ul.post-tags li a,
+.social-follow ul li a i, button#submit, .widget h3.headline:before, .recent-item .recent-post p, .tagcloud a, .ui-group.filters button.button.is-checked, .ui-group.filters button.button:hover, .contact-social ul li a
+
+
+{
+    background-color: #39DA8A
+}
+
+.mobileNav > li > a::after, .dec-list > li:before, .owl-carousel .center .item img, #fullMenuBtn.close, #dHeading:before, #dHeading:after, .working-item:hover:before
+{
+    border-color: #39DA8A
+}
+
+.mobileNav > li > a, .mobileNav > li > a:hover {
+    -webkit-text-stroke: .5px #39DA8A;
+}
+
+path{
+    stroke: #39DA8A;
+}
+/******************
+ * SWITCHER STYLE *
+ ******************/
+.switcherContent{
+    border-bottom: 1px solid #39DA8A
+}
+.switcher .switcherContents header,.switcher .switcherShowHide,.tempLayout ul .active-layout,.tempLayout ul li:hover{
+    background: #39DA8A;
+}
+.tempLayout ul li{
+    border: 1px solid  #39DA8A
+}
