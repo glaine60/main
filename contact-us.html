@@ -136,25 +136,29 @@
                                 <!-- contact form -->
                                 <div id="contactform">
                                     <div id="message"></div>
-                                    <form method="post" action="inc/contact.php" name="contactform" id="contact-form">
+                                    <form method="post" name="contactform" id="contact-form" data-netlify="true" netlify-honeypot="bot-field" action="/contact-success.html">
+                                        <input type="hidden" name="form-name" value="contactform">
+                                        <p style="display:none">
+                                            <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+                                        </p>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input name="name" type="text" id="name" placeholder="Name" class="fItem">
+                                                <input name="name" type="text" id="name" placeholder="Name" class="fItem" required>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="email" type="text" id="email" placeholder="E-mail" class="fItem">
+                                                <input name="email" type="email" id="email" placeholder="E-mail" class="fItem" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <input name="website" type="text" id="website" placeholder="Website URL" class="fItem">
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="subject" type="text" id="subject" placeholder="Subject" class="fItem">
+                                                <input name="subject" type="text" id="subject" placeholder="Subject" class="fItem" required>
                                             </div>
                                             <div class="col-md-12">
-                                                <textarea name="comments" id="comments" class="fItem" placeholder="Message"></textarea>
+                                                <textarea name="comments" id="comments" class="fItem" placeholder="Message" required></textarea>
                                             </div>
                                             <div class="col-md-12">
-                                                <button class="btn btn-3 btn-3e icon-arrow-right" id="submit">Send Message</button>
+                                                <button class="btn btn-3 btn-3e icon-arrow-right" id="submit" type="submit">Send Message</button>
                                             </div>
                                         </div>
                                     </form>

@@ -551,42 +551,12 @@
     /*
      *
      * CONTACT FORM
+     * Handled natively by Netlify Forms (see contact-us.html: data-netlify="true").
+     * The old jQuery AJAX handler that posted to inc/contact.php has been removed
+     * because it intercepted the submit event and blocked Netlify's own form
+     * capture. The form now submits normally to /contact-success.html.
      *
      * */
-        $('#contact-form').on("submit", function () {
-            var action = $(this).attr('action');
-            $("#message").slideUp(750, function () {
-                $('#message').hide();
-                $('#submit')
-                    .after('<img src="images/ajax-loader.gif" class="loader" />')
-                    .attr('disabled', 'disabled');
-                $.post(action, {
-                        name: $('#name').val(),
-                        email: $('#email').val(),
-                        website: $('#website').val(),
-                        subject: $('#subject').val(),
-                        comments: $('#comments').val()
-                    },
-                    function (data) {
-                        document.getElementById('message').innerHTML = data;
-                        $('#message').slideDown('slow');
-                        setTimeout(function () {
-                            $('#message').slideUp('slow');
-                            console.log('SetTime');
-                        }, 2000);
-
-                        $('#contact-form img.loader').fadeOut('slow', function () {
-                            $(this).remove();
-                        });
-                        $('#submit').removeAttr('disabled');
-                        if (data.match('success') != null)
-                            $('#contact-form').show('slow');
-                    }
-                );
-
-            });
-            return false;
-        });
 
 
 
