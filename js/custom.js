@@ -1018,18 +1018,7 @@
             icon: greenIcon
         }).addTo(map).bindPopup(popupTextit).openPopup();
     }
-    /*
-    *
-    * SWITCHER CONFIG
-    *
-    * */
-    var imported    = document.createElement('script');
-    var styleE      = document.createElement('link');
-    imported.src    = 'inc/switcher/js/switcher.js';
-    styleE.href     = 'inc/switcher/css/switcher.css';
-    styleE.rel      = 'stylesheet';
-    document.head.appendChild(imported);
-    document.head.appendChild(styleE);
+    
 
 
 //Enjoy...... of the End....
