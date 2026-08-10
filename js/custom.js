@@ -309,11 +309,11 @@
         if (window.pageYOffset >= sticky) {
             $(header).addClass("sticky");
             $('.headMenu, .sidePanel').addClass("sticky");
-            $('#topbtn').attr('href', '#top').addClass('upbtn').find('span').html('UP')
+            $('#topbtn').attr('href', '#top').addClass('upbtn').find('span').html('HAUT')
         } else {
             header.removeClass("sticky");
             $('.headMenu, .sidePanel').removeClass("sticky");
-            $('#topbtn').attr('href', '#top-menu').removeClass('upbtn').find('span').html('Down')
+            $('#topbtn').attr('href', '#top-menu').removeClass('upbtn').find('span').html('Bas')
         }
 
     });
