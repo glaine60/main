@@ -9,7 +9,7 @@
     function menuItem(e) {
         var lastId,
             topMenu = $(e),
-            topMenuHeight = topMenu.outerHeight() + 15,
+            topMenuHeight = (e === '.scrolControl') ? 0 : topMenu.outerHeight() + 15,
             menuItems = topMenu.find("li a"),
             scrollItems = menuItems.map(function () {
     var href = $(this).attr("href");
