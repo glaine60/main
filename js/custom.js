@@ -64,7 +64,6 @@
     }
     menuItem('#top-menu');
     menuItem('.top-menu');
-    menuItem('.scrolControl');
 
 
     /*
@@ -128,29 +127,51 @@
     $('.homeItem').css('height', wHeight - 164);
     /*
      *
-     *   SCROLL CONTROLL
+     *   SCROLL CONTROLL (dots + prev/next sync)
      *
      * */
-    $(window).on('scroll load', function () {
-        pagescroll();
-    });
-    function pagescroll() {
-        var mItems = $('.scrolControl').find('li.active');
-        var mnext = mItems.next();
-        var mprev = mItems.prev();
-        $(".prevBTN").attr("href", $(mprev).find('a').attr('href'));
-        $(".nextBTN").attr("href", $(mnext).find('a').attr('href'));
+    function syncSideNav() {
+        var $sections = $('.absection');
+        if (!$sections.length) return;
+
+        var viewportMid = $(window).scrollTop() + ($(window).height() / 2);
+        var currentId = $sections.first().attr('id');
+
+        $sections.each(function () {
+            if ($(this).offset().top <= viewportMid) {
+                currentId = $(this).attr('id');
+            }
+        });
+
+        var $dots = $('.scrolControl li');
+        $dots.removeClass('active');
+        var $activeDot = $dots.filter(function () {
+            return $(this).find('a').attr('href') === '#' + currentId;
+        }).addClass('active');
+
+        var $next = $activeDot.next('li');
+        var $prev = $activeDot.prev('li');
+        $('.nextBTN').attr('href', $next.length ? $next.find('a').attr('href') : '#' + currentId);
+        $('.prevBTN').attr('href', $prev.length ? $prev.find('a').attr('href') : '#' + currentId);
     }
-    $('.scrolControl > a').on('click', function () {
-        pagescroll();
-    });
+    $(window).on('scroll load resize', syncSideNav);
 
     $('.prevBTN, .nextBTN').on('click', function (e) {
         var href = $(this).attr("href"),
             offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
         $('html, body').stop().animate({
             scrollTop: offsetTop
-        }, 300);
+        }, 300, syncSideNav);
+        e.preventDefault();
+    });
+
+    $('.scrolControl li a').on('click', function (e) {
+        var href = $(this).attr('href');
+        if (!href || href.charAt(0) !== '#') return;
+        var offsetTop = $(href).offset().top + 1;
+        $('html, body').stop().animate({
+            scrollTop: offsetTop
+        }, 300, syncSideNav);
         e.preventDefault();
     });
 
