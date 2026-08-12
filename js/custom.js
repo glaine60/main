@@ -308,6 +308,7 @@
             scrollTop: offsetTop
         }, 300);
         e.preventDefault();
+        
     });
 
 
