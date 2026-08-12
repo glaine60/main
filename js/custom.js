@@ -1031,14 +1031,37 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        var greenIcon = L.icon({
-            iconUrl: 'images/marker.png',
-            iconSize: [40, 40],
-            popupAnchor: [0, -26]
-        });
-        L.marker(latlog, {
-            icon: greenIcon
-        }).addTo(map).bindPopup(popupTextit).openPopup();
+      var $logo = $('.logo').first();
+var $logoImg = $logo.find('img');
+var greenIcon;
+
+if ($logoImg.length) {
+    // Le logo est une image : le marqueur réutilise la même image
+    var logoSrc = $logoImg.attr('src');
+    greenIcon = L.divIcon({
+        className: 'map-logo-marker',
+        html: '<span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:' + ($logo.css('background-color') || '#f5a300') + ';border-radius:4px;overflow:hidden;"><img src="' + logoSrc + '" style="width:100%;height:100%;object-fit:contain;"></span>',
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+        popupAnchor: [0, -26]
+    });
+} else {
+    // Le logo est du texte : le marqueur réutilise ce texte
+    var logoText = $logo.text().trim() || 'GO';
+    var logoBg = $logo.css('background-color') || '#f5a300';
+    var logoColor = $logo.css('color') || '#fff';
+    greenIcon = L.divIcon({
+        className: 'map-logo-marker',
+        html: '<span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:' + logoBg + ';color:' + logoColor + ';font-weight:700;font-size:14px;border-radius:4px;">' + logoText + '</span>',
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+        popupAnchor: [0, -26]
+    });
+}
+
+L.marker(latlog, {
+    icon: greenIcon
+}).addTo(map).bindPopup(popupTextit).openPopup();
     }
     
 
