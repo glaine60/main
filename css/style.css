@@ -2902,3 +2902,19 @@ button#submit {
     object-fit: contain;
     display: block;
 }
+#submit.icon-arrow-right {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+#submit.icon-arrow-right::before,
+#submit.icon-arrow-right::after {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+}
