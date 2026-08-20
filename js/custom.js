@@ -556,7 +556,7 @@
      *
      * */
     function lcLightBox() {
-        lc_lightbox('.elem', {
+        lc_lightbox('.elem, .profile-lightbox', {
             wrap_class: 'portfolioITems',
             gallery: true,
             thumb_attr: 'data-lcl-thumb',
